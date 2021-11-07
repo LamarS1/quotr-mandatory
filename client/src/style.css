@@ -65,26 +65,6 @@ a:hover {
 .quoteListItem {
   margin-top: 20px;
 }
-/* Recipe detail view --------------------------------------------- */
-
-.quote {
-  max-width: 38em;
-}
-
-.ingredients {
-  background-color: var(--color-near-white);
-  border: 1px solid var(--color-light);
-  padding: 30px 60px 30px 30px;
-  display: inline-block;
-  transform: rotate(-0.8deg);
-  box-shadow: rgba(36, 35, 39, 0.4) -1px 7px 10px;
-}
-
-.ingredients ul {
-  padding-left: 20px;
-}
-
-/* Add recipes ---------------------------------------------------- */
 
 .add-quotes {
   align-self: center;
