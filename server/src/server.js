@@ -1,13 +1,13 @@
 /* Node.js libraries */
-import path from "path";
+import path from 'path';
 
 /* External libraries */
-import express from "express";
-import morgan from "morgan";
-import cors from "cors";
+import express from 'express';
+import morgan from 'morgan';
+import cors from 'cors';
 
 /* Local files */
-import recipeRoutes from "./routes/recipes.js";
+import quoteRoutes from './routes/quotes.js';
 
 function createServer() {
   const app = express();
@@ -23,7 +23,7 @@ function createServer() {
 
   /* The morgan() middleware logs request info to the console while the server is
    * running: https://expressjs.com/en/resources/middleware/morgan.html */
-  app.use(morgan("combined"));
+  app.use(morgan('combined'));
 
   /* The cors() middleware allows Cross-Origin Resource Sharing when developing
    * locally: http://expressjs.com/en/resources/middleware/cors.html */
@@ -31,16 +31,16 @@ function createServer() {
 
   /* The express.static() middleware serves our static files from the pre-built
    * React app: http://expressjs.com/en/api.html#express.static */
-  app.use(express.static(path.resolve("..", "client", "build")));
+  app.use(express.static(path.resolve('..', 'client', 'build')));
 
   /* We add our own routes as middleware on the `/api` path */
-  app.use("/api/recipes", recipeRoutes);
+  app.use('/api/quotes', quoteRoutes);
 
   /* "Redirect" all non-API GET requests to React's entry point (index.html)
    * which allows the React SPA's client side navigation library to handle full
    * page refreshes */
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve("..", "client", "build", "index.html"))
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve('..', 'client', 'build', 'index.html'))
   );
 
   return app;
